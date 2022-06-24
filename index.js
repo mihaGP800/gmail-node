@@ -4,7 +4,9 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const app = express()
-const port = 3010
+const port = process.env.PORT || 3010
+const smtpLogin = process.env.SMTP_LOGIN || '---' // 'portfolio.mihagoroh@gmail.com'
+const smtpPassword = process.env.SMTP_PASWORD || '---' // opnugtkzcajkcpkk
 
 app.use(cors())
 
@@ -48,7 +50,7 @@ let transporter = nodemailer.createTransport({
     // port: 465,
     // secure: true,
     auth: {
-        user: 'portfolio.mihagoroh@gmail.com', // generated ethereal user
-        pass: 'opnugtkzcajkcpkk', // https://stackoverflow.com/questions/70606793/nodemailer-with-gmail-there-was-an-error-error-invalid-login-535-5-7-8-user
+        user: smtpLogin, // generated ethereal user
+        pass: smtpPassword, // https://stackoverflow.com/questions/70606793/nodemailer-with-gmail-there-was-an-error-error-invalid-login-535-5-7-8-user
     },
 });
