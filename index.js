@@ -32,6 +32,8 @@ app.post('/sendMessage', async (req, res) => {
         //text: "Hello world?", // plain text body
         html: `<b>Response from HR ${name}</b>
                 <p/>
+                email: ${email}
+                <p/>
                 message: ${message}
                 <p/>`,
     });
